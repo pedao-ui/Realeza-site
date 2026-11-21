@@ -1,4 +1,4 @@
-import {X} from 'lucide-react';
+import {Instagram, X} from 'lucide-react';
 import {useState} from 'react';
 import {BUSINESS_INFO} from '../data/barbershop';
 import {buildDirectWhatsAppUrl} from '../utils/booking';
@@ -87,15 +87,27 @@ export function Navbar() {
               </a>
             ))}
           </div>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-            className="mt-4 flex min-h-[48px] w-full items-center justify-center rounded-sm border border-[#30395F] bg-[#30395F]/25 px-4 py-3 text-sm font-semibold tracking-wider text-[#F1EAE0] uppercase transition-colors hover:border-[#CDA77F] hover:text-[#CDA77F]"
-          >
-            Falar no WhatsApp
-          </a>
+          <div className="mt-4 flex flex-col gap-2.5">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex min-h-[48px] w-full items-center justify-center rounded-sm border border-[#30395F] bg-[#30395F]/25 px-4 py-3 text-sm font-semibold tracking-wider text-[#F1EAE0] uppercase transition-colors hover:border-[#CDA77F] hover:text-[#CDA77F]"
+            >
+              Falar no WhatsApp
+            </a>
+            <a
+              href={BUSINESS_INFO.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex min-h-[46px] w-full items-center justify-center gap-2 rounded-sm border border-[#30395F]/70 bg-transparent px-4 py-2.5 text-sm font-medium text-[#F1EAE0]/85 transition-colors hover:border-[#CDA77F] hover:text-[#CDA77F]"
+            >
+              <Instagram className="h-4 w-4 shrink-0 text-[#CDA77F]" aria-hidden="true" />
+              <span>Instagram ({BUSINESS_INFO.instagramHandle})</span>
+            </a>
+          </div>
         </nav>
       )}
     </header>

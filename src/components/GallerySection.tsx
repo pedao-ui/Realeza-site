@@ -1,6 +1,11 @@
-import {X} from 'lucide-react';
+import {Instagram, X} from 'lucide-react';
 import {useEffect, useState} from 'react';
-import {GALLERY_CATEGORIES, GALLERY_PHOTOS, type GalleryPhoto} from '../data/barbershop';
+import {
+  BUSINESS_INFO,
+  GALLERY_CATEGORIES,
+  GALLERY_PHOTOS,
+  type GalleryPhoto,
+} from '../data/barbershop';
 
 interface GallerySectionProps {
   onBookStyle: (styleTitle: string) => void;
@@ -99,6 +104,21 @@ export function GallerySection({onBookStyle}: GallerySectionProps) {
               </div>
             </button>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-[#F1EAE0]/10 pt-8 sm:flex-row sm:items-center">
+          <p className="text-sm text-[#F1EAE0]/70">
+            Acompanhe cortes, visagismo e rotina do ateliê no perfil oficial {BUSINESS_INFO.instagramHandle}.
+          </p>
+          <a
+            href={BUSINESS_INFO.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-sm border border-[#30395F] bg-[#161924] px-5 py-2.5 text-sm font-medium text-[#F1EAE0] transition-colors hover:border-[#CDA77F] hover:text-[#CDA77F] sm:w-auto whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#CDA77F]"
+          >
+            <Instagram className="h-4 w-4 shrink-0 text-[#CDA77F]" aria-hidden="true" />
+            <span>Ver Instagram</span>
+          </a>
         </div>
       </div>
 

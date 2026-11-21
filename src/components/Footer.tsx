@@ -1,4 +1,4 @@
-import {MessageCircle} from 'lucide-react';
+import {Instagram, MessageCircle} from 'lucide-react';
 import {BUSINESS_INFO} from '../data/barbershop';
 import {buildDirectWhatsAppUrl} from '../utils/booking';
 import {BrandEmblem} from './BrandEmblem';
@@ -45,17 +45,28 @@ export function Footer() {
 
           <div className="space-y-3 md:col-span-3">
             <p className="font-display text-base font-semibold text-[#F1EAE0]">
-              Atendimento rápido
+              Atendimento e redes
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-sm border border-[#30395F] bg-[#30395F]/20 px-4 py-2.5 text-sm font-medium text-[#F1EAE0] transition-colors hover:border-[#CDA77F] hover:text-[#CDA77F]"
-            >
-              <MessageCircle className="h-4 w-4 shrink-0 text-[#CDA77F]" aria-hidden="true" />
-              <span>Chamar no WhatsApp</span>
-            </a>
+            <div className="flex flex-col gap-2.5">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-sm border border-[#30395F] bg-[#30395F]/20 px-4 py-2.5 text-sm font-medium text-[#F1EAE0] transition-colors hover:border-[#CDA77F] hover:text-[#CDA77F]"
+              >
+                <MessageCircle className="h-4 w-4 shrink-0 text-[#CDA77F]" aria-hidden="true" />
+                <span>Chamar no WhatsApp</span>
+              </a>
+              <a
+                href={BUSINESS_INFO.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-sm border border-[#30395F]/75 bg-transparent px-4 py-2.5 text-sm font-medium text-[#F1EAE0]/85 transition-colors hover:border-[#CDA77F] hover:text-[#CDA77F]"
+              >
+                <Instagram className="h-4 w-4 shrink-0 text-[#CDA77F]" aria-hidden="true" />
+                <span>Instagram ({BUSINESS_INFO.instagramHandle})</span>
+              </a>
+            </div>
           </div>
         </div>
 

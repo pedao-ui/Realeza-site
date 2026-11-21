@@ -7,7 +7,6 @@ import {
   buildWhatsAppBookingUrl,
   formatCurrencyBRL,
   formatDateBR,
-  formatPhoneInput,
   getAvailableTimeSlots,
   getNextOpenDateISO,
   validateBookingForm,
@@ -30,7 +29,6 @@ export function BookingSection({
   const [date, setDate] = useState(defaultDate);
   const [time, setTime] = useState('10:00');
   const [clientName, setClientName] = useState('');
-  const [clientPhone, setClientPhone] = useState('');
   const [notes, setNotes] = useState('');
   const [errors, setErrors] = useState<BookingValidationErrors>({});
   const [confirmedBooking, setConfirmedBooking] = useState<BookingFormInput | null>(null);
@@ -77,7 +75,6 @@ export function BookingSection({
       date,
       time,
       clientName,
-      clientPhone,
       notes,
     };
 
@@ -191,24 +188,24 @@ export function BookingSection({
               </div>
 
               <div>
-                <label htmlFor="booking-phone" className="block text-sm font-medium text-[#F1EAE0]/85">
-                  Seu WhatsApp
+                <label htmlFor="booking-name" className="block text-sm font-medium text-[#F1EAE0]/85">
+                  Seu nome
                 </label>
                 <input
-                  id="booking-phone"
-                  type="tel"
-                  inputMode="tel"
-                  placeholder="(71) 99999-0000"
-                  value={clientPhone}
+                  id="booking-name"
+                  type="text"
+                  autoComplete="name"
+                  placeholder="Como você prefere ser chamado"
+                  value={clientName}
                   onChange={(e) => {
-                    setClientPhone(formatPhoneInput(e.target.value));
+                    setClientName(e.target.value);
                     setConfirmedBooking(null);
                   }}
-                  className="mt-2 min-h-[48px] w-full rounded-sm border border-[#30395F]/80 bg-[#101116] px-3.5 py-2.5 text-base text-[#F1EAE0] tabular-nums placeholder:text-[#F1EAE0]/40 focus:border-[#CDA77F] focus:outline-none"
+                  className="mt-2 min-h-[48px] w-full rounded-sm border border-[#30395F]/80 bg-[#101116] px-3.5 py-2.5 text-base text-[#F1EAE0] placeholder:text-[#F1EAE0]/40 focus:border-[#CDA77F] focus:outline-none"
                 />
-                {errors.clientPhone && (
+                {errors.clientName && (
                   <p role="alert" className="mt-1.5 text-xs font-medium text-[#fca5a5]">
-                    {errors.clientPhone}
+                    {errors.clientName}
                   </p>
                 )}
               </div>
@@ -255,29 +252,6 @@ export function BookingSection({
               {errors.time && (
                 <p role="alert" className="mt-1.5 text-xs font-medium text-[#fca5a5]">
                   {errors.time}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="booking-name" className="block text-sm font-medium text-[#F1EAE0]/85">
-                Seu nome
-              </label>
-              <input
-                id="booking-name"
-                type="text"
-                autoComplete="name"
-                placeholder="Como você prefere ser chamado"
-                value={clientName}
-                onChange={(e) => {
-                  setClientName(e.target.value);
-                  setConfirmedBooking(null);
-                }}
-                className="mt-2 min-h-[48px] w-full rounded-sm border border-[#30395F]/80 bg-[#101116] px-3.5 py-2.5 text-base text-[#F1EAE0] placeholder:text-[#F1EAE0]/40 focus:border-[#CDA77F] focus:outline-none"
-              />
-              {errors.clientName && (
-                <p role="alert" className="mt-1.5 text-xs font-medium text-[#fca5a5]">
-                  {errors.clientName}
                 </p>
               )}
             </div>
@@ -389,12 +363,6 @@ export function BookingSection({
                   <div className="flex items-baseline justify-between gap-4">
                     <dt className="text-[#F1EAE0]/65">Cliente</dt>
                     <dd className="font-semibold text-[#F1EAE0]">{confirmedBooking.clientName}</dd>
-                  </div>
-                  <div className="flex items-baseline justify-between gap-4">
-                    <dt className="text-[#F1EAE0]/65">WhatsApp</dt>
-                    <dd className="font-semibold text-[#F1EAE0] tabular-nums">
-                      {confirmedBooking.clientPhone}
-                    </dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-4">
                     <dt className="text-[#F1EAE0]/65">Serviço</dt>
