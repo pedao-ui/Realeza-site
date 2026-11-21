@@ -1,0 +1,6 @@
+{
+  "name": "Realeza Visagismo",
+  "description": "Barbearia e visagismo masculino em Salvador. Corte de precisao, barba na toalha quente, planos mensais e agendamento direto pelo WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
